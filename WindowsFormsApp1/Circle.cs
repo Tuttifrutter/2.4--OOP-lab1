@@ -1,13 +1,22 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Shapes
 {
-    class Circle : Shape
+    class Circle : Point
     {
-        public override void Draw(ref Bitmap bmp, int x1, int x2, int x3, int x4)
+        public int R;
+        public override void Draw() 
         {
-            Graphics graph = Graphics.FromImage(bmp);
-            graph.DrawEllipse(pen, x1, x2, x3, x4);
+            DrawCircle(x1, y1, R);
+        }
+        
+        public void DrawCircle(int x1,int y1,int R)
+        {
+            Graphics graph = Graphics.FromImage(Bmp);
+            graph.DrawEllipse(pen, Math.Abs(x1 - R), Math.Abs(y1 - R), R * 2, R * 2);
         }
     }
 }
+
+           

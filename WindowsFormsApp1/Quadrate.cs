@@ -1,13 +1,23 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Shapes
 {
-    class Quadrate : Shape
+    class Quadrate : Line
     {
-        public override void Draw(ref Bitmap bmp,int x1, int x2, int x3, int x4)
+        public int a;
+        public override void Draw() 
         {
-            Graphics graph = Graphics.FromImage(bmp);
-            graph.DrawRectangle(pen, x1, x2, x3, x4);
+            DrawQuadrate(x1, y1, a);
+        }
+        public void DrawQuadrate(int x1, int y1, int a)
+        {
+            base.DrawLine(x1, y1, x1 + a + Convert.ToInt32(pen.Width), y1);
+            base.DrawLine(x1, y1, x1, y1 + a + Convert.ToInt32(pen.Width));
+            base.DrawLine(x1 + a + Convert.ToInt32(pen.Width), y1 + a + Convert.ToInt32(pen.Width), x1 + a + Convert.ToInt32(pen.Width), y1);
+            base.DrawLine(x1 + a + Convert.ToInt32(pen.Width), y1 + a + Convert.ToInt32(pen.Width), x1 , y1 + a + Convert.ToInt32(pen.Width));
         }
     }
 }
+//Graphics graph = Graphics.FromImage(Bmp);
+//   graph.DrawRectangle(pen, x1, y1, x1 + a, y1 + a);

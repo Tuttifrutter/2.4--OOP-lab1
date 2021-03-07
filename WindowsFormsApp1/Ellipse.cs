@@ -2,12 +2,17 @@
 
 namespace Shapes
 {
-    class Ellipse : Shape
+    class Ellipse :Circle
     {
-        public override void Draw(ref Bitmap bmp, int x1, int x2, int x3, int x4)
+        public int R2;
+        public override void Draw() 
         {
-            Graphics graph = Graphics.FromImage(bmp);
-            graph.DrawEllipse(pen, x1, x2, x3, x4);
+            DrawEllipse(x1, y1, R, R2);
+        }
+        public void DrawEllipse(int x1, int y1, int R, int R2)
+        {
+            Graphics graph = Graphics.FromImage(Bmp);
+            graph.DrawEllipse(pen, x1, y1, R, R2);
         }
     }
 }
